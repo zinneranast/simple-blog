@@ -1,0 +1,25 @@
+{% extends "header.jinja2" %}
+
+{% block view_content %}
+    <h1 style="text-align: center">Welcome to the best blog!</h1>
+    <div style="margin: 10px; padding: 10px">
+        <div style="float: left; width: 50%">
+            <div style="width: 50%; margin: 0 auto">
+                <h4 style="text-align: center">Bloggers</h4>
+                {% for u in users %}
+                    <a href="{{request.application_url}}/user/{{u.name}}">{{u.name}}</a>
+                    <br />
+                {% endfor %}
+            </div>
+        </div>
+        <div style="float: right; width: 50%">
+            <div style="width: 50%; margin: 0 auto">
+                <h4 style="text-align: center">Groups</h4>
+                {% for g in groups %}
+                    <a href="{{request.application_url}}/group/{{g.name}}">{{g.name}}</a>
+                    <br />
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

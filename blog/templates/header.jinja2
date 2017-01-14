@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <div>
+            <a style="float: left" href="{{request.application_url}}">Go Home</a>
+            <a style="float: left; margin-left: 10px" href="{{back_ref}}"" onclick="location.reload()">Back</a>
+            {% if view.logged_in %}
+                <a style="float: right" href="{{request.application_url}}/logout">Logout</a>
+                <a style="float: right; margin-right: 10px" href="{{request.application_url}}/user/{{view.logged_in}}">Моя страница (<b>{{view.logged_in}}</b>)</a>
+            {% else %}
+                <a style="float: right" href="{{request.application_url}}/login">Log In</a>
+                <a style="float: right; margin-right: 10px" href="{{request.application_url}}/registration">Registration</a>
+            {% endif %}
+        </div>
+        <br /><br />
+        <div>{% block view_content %}{% endblock %}</div>
+    </div>
+{% endblock %}

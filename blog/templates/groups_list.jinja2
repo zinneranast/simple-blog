@@ -1,0 +1,13 @@
+{% extends "header.jinja2" %}
+
+{% block view_content %}
+    <div style="margin: 10px; padding: 10px">
+        <a href="{{request.resource_url(context, 'add_group')}}">Add new group</a>
+        <br /><br />
+        <h4>Groups in wich you are a member</h4>
+        {% for g in groups %}
+            <br />
+            <a href="{{request.resource_url(g, 'manage')}}">{{g.name}}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

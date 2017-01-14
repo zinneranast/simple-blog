@@ -1,0 +1,10 @@
+{% extends "header.jinja2" %}
+
+{% block view_content %}
+    <div style="text-align: center; margin: 10px">
+        <br />
+        <a href="{{request.resource_url(request.context, 'posts_list')}}">Manage posts</a>
+        <br /><br />
+        <a href="{{request.resource_url(request.context, 'groups_list')}}">Manage groups</a>
+    </div>
+{% endblock %}

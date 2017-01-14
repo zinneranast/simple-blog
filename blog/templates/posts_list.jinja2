@@ -1,0 +1,19 @@
+{% extends "header.jinja2" %}
+
+{% block view_content %}
+    <div style="margin: 10px; padding: 10px">
+        {% if perm_add %}
+            <a href="{{request.resource_url(context, 'add_post')}}">Add new post</a>
+            <br /><br />
+        {% endif %}
+        <h4>Posts from "{{context.__name__}}"</h4>
+        {% for p in posts %}
+            <br />
+            <a href="{{request.resource_url(p)}}">{{p.title}}</a>
+            {% if perm_add %}
+                <a href="{{request.resource_url(p, 'edit_post')}}">Edit</a>
+                <a href="{{request.resource_url(p, 'delete_post')}}">Delete</a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

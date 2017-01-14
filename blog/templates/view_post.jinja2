@@ -1,0 +1,11 @@
+{% extends "header.jinja2" %}
+
+{% block view_content %}
+    <div style="width: 50%; margin: 0 auto">
+        <h1 style="text-align: center">{{post.title}}</h1>
+        <br />
+        <p>{{post.text}}</p>
+        <br />
+        <p style="float: right">Posted by <b>{{post.author.name}}</b> at {{post.timestamp.strftime("%Y-%m-%d %H:%M:%S")}}</p>
+    </div>
+{% endblock %}

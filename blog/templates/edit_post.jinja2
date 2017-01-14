@@ -1,0 +1,28 @@
+{% extends "header.jinja2" %}
+
+{% block view_content %}
+    <div style="text-align: center">
+        <h1>{{name}}</h1>
+        <br />
+        {% if message %}
+            <p style="color: red">{{message}}</p>
+            <br />
+        {% endif %}
+        <form action="{{url}}" method="post">
+            <input type="hidden" name="came_from"
+                   value="{{came_from}}"/>
+            <label for="title">Title</label>
+            <input type="text" id="title"
+                   name="title"
+                   value="{{title}}"/>
+            <br /><br />
+            <label for="text">Text</label>
+            <textarea cols="30" rows="3" id="text" name="text"/>
+                   {{text}}
+            </textarea>
+            <br /><br />
+            <input type="submit" name="form.submitted"
+                   value="Save"/>
+        </form>
+    </div>
+{% endblock %}
